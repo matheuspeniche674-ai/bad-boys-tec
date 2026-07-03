@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bad Boys Tec | Hub de Infraestrutura & SOC</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="toast-notification" id="systemToast">Mensagem do Sistema</div>
+
+<!-- ===== HEADER / MENU COM LOGO ATUALIZADA ===== -->
+<header id="mainHeader">
+  <div class="container header-inner">
+    <a href="#inicio" class="logo-container">
+      <img src="WhatsApp Image 2026-07-01 at 09.10.25.jpeg" alt="Logo Bad Boys Tec" class="logo-img">
+      <div class="logo-text">
+        <span class="logo-main">BAD BOYS TEC</span>
+        <span class="logo-sub">OPERATIONS CENTER</span>
+      </div>
+    </a>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="#inicio" class="nav-btn-red active" onclick="setActiveLink(this)">Início</a></li>
+        <li><a href="#niveis-suporte" class="nav-btn-red" onclick="setActiveLink(this)">Diretrizes SLA</a></li>
+        <li><a href="#chamados" class="nav-btn-red" onclick="setActiveLink(this)">Painel de Fila</a></li>
+        <li><a href="#abrir-chamado" class="nav-btn-red" onclick="setActiveLink(this)">Abertura Técnica</a></li>
+        <li><a href="#contato" class="nav-btn-red" onclick="setActiveLink(this)">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="nav-btn-red admin-trigger" onclick="openLoginModal()">🔒 Console Admin</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero-section" id="inicio">
+  <div class="hero-glow-overlay"></div>
+  <div class="container hero-grid">
+    <div class="hero-left">
+      <div class="hero-tag"><span class="live-pulse pulse-red-fast"></span> CENTRAL DE OPERAÇÕES OPERANTE [2026]</div>
+      <h1 class="hero-title">BAD BOYS<br><span class="text-glow-red">OS MAIS MAIS</span></h1>
+      <p class="hero-description">Contenção ativa de falhas com divisão estruturada em Nível 1, 2 e 3. Conectamos a sua empresa ao uptime absoluto com engenharia de prontidão.</p>
+      
+      <div class="hero-metrics">
+        <div class="metric-box"><span class="metric-num">99.98%</span><span class="metric-txt">Uptime Global</span></div>
+        <div class="metric-box"><span class="metric-num">&lt; 12min</span><span class="metric-txt">SLA de Resposta</span></div>
+        <div class="metric-box"><span class="metric-num">2.4k</span><span class="metric-txt">Ativos Livres</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-image-wrapper">
+        <img src="equipe.jpg" alt="Equipe Bad Boys Tec" class="hero-display-img">
+        <div class="image-overlay-terminal">
+          <p class="t-green">> SEC_KERNEL_BOOT: SECURE</p>
+          <p class="t-red anim-blink">> PORT_SCAN_BLOCKED: 10.0.4.x</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PARCEIROS ===== -->
+<section class="clientes-section" id="clientes">
+  <div class="container">
+    <h3 class="section-subtitle">Corporações Conectadas e Monitoradas</h3>
+    <div class="clientes-grid">
+      <div class="client-brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="partner-logo"></div>
+      <div class="client-brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" class="partner-logo"></div>
+      <div class="client-brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="partner-logo"></div>
+      <div class="client-brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo_%282012%29.svg" alt="Microsoft" class="partner-logo"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GUIA INFORMATIVA DE NÍVEIS ===== -->
+<section class="sla-guide-section" id="niveis-suporte">
+  <div class="container">
+    <h2 class="section-title">Matriz de Escalonamento de Suporte</h2>
+    <div class="sla-cards-grid">
+      
+      <div class="sla-info-card level-1">
+        <div class="card-flash-bar flash-green"></div>
+        <div class="sla-level-badge">NÍVEL 1</div>
+        <h3>Service Desk Inicial</h3>
+        <p>Triagem rápida de incidentes simples, resets de acessos, dúvidas operacionais de software comuns e suporte ao usuário final.</p>
+        <div class="sla-meta">SLA Máximo: 4 horas</div>
+        <a href="#abrir-chamado" class="sla-card-action-btn-red" onclick="setFormUrgency('Nível 1')">⚡ Fazer Chamado Nível 1</a>
+      </div>
+
+      <div class="sla-info-card level-2">
+        <div class="card-flash-bar flash-orange"></div>
+        <div class="sla-level-badge">NÍVEL 2</div>
+        <h3>Infraestrutura & Redes</h3>
+        <p>Tratamento de falhas físicas em hardware, roteadores desconfigurados, quedas parciais de link de internet e servidores locais travados.</p>
+        <div class="sla-meta">SLA Máximo: 2 horas</div>
+        <a href="#abrir-chamado" class="sla-card-action-btn-red" onclick="setFormUrgency('Nível 2')">⚡ Fazer Chamado Nível 2</a>
+      </div>
+
+      <div class="sla-info-card level-3">
+        <div class="card-flash-bar flash-red"></div>
+        <div class="sla-level-badge">NÍVEL 3</div>
+        <h3>DevOps & Cyber Security</h3>
+        <p>Casos extremos e paradas totais. Ataques de invasão cibernética, perda de dados crítica em banco de dados e bugs severos em APIs principais.</p>
+        <div class="sla-meta">SLA Máximo: 30 minutos</div>
+        <a href="#abrir-chamado" class="sla-card-action-btn-red" onclick="setFormUrgency('Nível 3')">⚡ Fazer Chamado Nível 3</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CENTRAL DE MONITORIZAÇÃO ===== -->
+<section class="chamados-section" id="chamados">
+  <div class="container">
+    <h2 class="section-title">Central Pública de Monitoramento</h2>
+    
+    <div class="toolbar-controls">
+      <input type="text" placeholder="Filtrar por protocolo, empresa ou host..." class="input-search" id="searchTableInput" onkeyup="filterTable()">
+      <div class="filter-pills-group">
+        <button class="pill-btn active" onclick="filterTableByStatus('all')">Todos</button>
+        <button class="pill-btn" onclick="filterTableByStatus('Nível 1')">Nível 1</button>
+        <button class="pill-btn" onclick="filterTableByStatus('Nível 2')">Nível 2</button>
+        <button class="pill-btn danger" onclick="filterTableByStatus('Nível 3')">🚨 Nível 3</button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="main-data-table" id="ticketsTable">
+        <thead>
+          <tr>
+            <th>Protocolo / Empresa</th>
+            <th>Foco Técnico</th>
+            <th>Equipamento / Host</th>
+            <th>Nível de Impacto</th>
+            <th>Estado Técnico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Injetado via Javascript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORMULÁRIO DE CADASTRO ===== -->
+<section class="form-section" id="abrir-chamado">
+  <div class="container compact-container">
+    <div class="glass-card-form">
+      <div class="form-badge-top">INCIDENT TELEMETRY ENGINE</div>
+      <h2 class="form-card-title">Abertura de Chamado Avançado</h2>
+      <p class="form-card-subtitle">Insira os dados da máquina para processamento imediato pelo NOC.</p>
+      
+      <form id="newTicketForm" onsubmit="handleCreateTicket(event)">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Nome da Empresa (Digitar)</label>
+            <input type="text" id="formClientName" placeholder="Ex: Google Brasil" required>
+          </div>
+          <div class="form-group">
+            <label>Categoria de Infraestrutura</label>
+            <select id="formTicketCategory" required>
+              <option value="Software">💻 Software (Sistemas, APIs)</option>
+              <option value="Hardware">🔌 Hardware (Servidores, Nobreaks)</option>
+              <option value="Redes">🌐 Redes e Conectividade</option>
+              <option value="Segurança Cibernética">🛡️ Segurança Cibernética</option>
+              <option value="Telefonia IP">📞 Telefonia IP & VoIP</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Gravidade / Nível de Suporte Requerido</label>
+            <select id="formTicketUrgency">
+              <option value="Nível 1">Nível 1 — Suporte Técnico Geral (Baixo Impacto)</option>
+              <option value="Nível 2">Nível 2 — Infraestrutura & Hardware Corporativo</option>
+              <option value="Nível 3">Nível 3 — Crise Crítica / Segurança / Falha Total</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Hostname / IP do Equipamento</label>
+            <input type="text" id="formHost" required placeholder="Ex: SRV-PROD-01">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Descrição Detalhada dos Sintomas</label>
+          <textarea rows="4" required placeholder="Descreva os logs de erros observados no ativo..." id="formTicketDesc"></textarea>
+        </div>
+        
+        <button type="submit" class="btn-submit-form">Transmitir Ticket ao Banco de Dados</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ÁREA DE CONTACTO ===== -->
+<section class="contact-section" id="contato">
+  <div class="container">
+    <h2 class="section-title">Canais Oficiais de Atendimento</h2>
+    <div class="contact-layout-grid">
+      <div class="contact-info-cards">
+        <div class="interactive-contact-card whatsapp-card" onclick="window.open('https://wa.me/5513981458404', '_blank')">
+          <div class="c-icon">🟢</div>
+          <div class="c-texts">
+            <h4>WhatsApp Corporativo</h4>
+            <p>Clique para atendimento móvel instantâneo: (13) 98145-8404</p>
+          </div>
+        </div>
+        <div class="interactive-contact-card" onclick="window.location.href='mailto:matheuspeniche674@gmail.com'">
+          <div class="c-icon">✉️</div>
+          <div class="c-texts">
+            <h4>E-mail Dedicado</h4>
+            <p>matheuspeniche674@gmail.com</p>
+          </div>
+        </div>
+        <div class="interactive-contact-card" onclick="window.location.href='tel:38414148'">
+          <div class="c-icon">📞</div>
+          <div class="c-texts">
+            <h4>Telefone Fixo Central</h4>
+            <p>PABX Técnico: 3841-4148</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form-panel">
+        <form onsubmit="event.preventDefault(); showToast('Mensagem enviada com sucesso!'); this.reset();">
+          <div class="form-group"><label>Gestor solicitante</label><input type="text" placeholder="Seu Nome" required></div>
+          <div class="form-group"><label>E-mail Corporativo</label><input type="email" placeholder="nome@suaempresa.com" required></div>
+          <div class="form-group"><label>Assunto / Mensagem</label><textarea placeholder="Gostaria de fechar um pacote mensal de suporte corporativo..." rows="3" required></textarea></div>
+          <button type="submit" class="btn-submit-form">Enviar Mensagem Comercial</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL LOGIN -->
+<div class="modal-backdrop" id="loginModal">
+  <div class="login-card">
+    <div class="login-header">
+      <h3>🔒 Console de Autenticação</h3>
+      <button class="close-modal-btn" onclick="closeLoginModal()">✕</button>
+    </div>
+    <form onsubmit="handleLogin(event)">
+      <div class="form-group"><label>Operador Autorizado</label><input type="text" id="loginUser" required placeholder="Don Los Pau"></div>
+      <div class="form-group"><label>Chave de Segurança</label><input type="password" id="loginPass" required placeholder="••••"></div>
+      <button type="submit" class="btn-submit-form">Liberar Console</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== PAINEL ADMINISTRATIVO COM FOTO DO PAULO ===== -->
+<div class="admin-full-backdrop" id="adminDashboardView">
+  <div class="admin-window">
+    <div class="admin-top-bar">
+      <div class="admin-system-title"><span class="live-pulse pulse-red"></span> CONSOLE OPERACIONAL REVOLUTION V5.2</div>
+      <button class="logout-btn" onclick="closeAdminDashboard()">Sair 🚪</button>
+    </div>
+    
+    <div class="admin-workspace">
+      <aside class="admin-sidebar">
+        <!-- PERFIL ATUALIZADO COM A COMBINAÇÃO DE FOTO DO GERENTE -->
+        <div class="admin-profile" style="display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+          <div class="admin-avatar-container" style="position: relative; width: 50px; height: 50px;">
+            <img src="gerente-paulo.jpg" alt="Gerente Paulo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid #E8190E; box-shadow: 0 0 8px rgba(232, 25, 14, 0.4);">
+            <span class="live-pulse pulse-red-fast" style="position: absolute; bottom: 2px; right: 2px; width: 10px; height: 10px;"></span>
+          </div>
+          <div>
+            <div class="admin-name" style="font-weight: 700; color: #fff; font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px;">Paulo</div>
+            <div class="admin-status-lbl" style="font-size: 11px; color: #E8190E; font-family: 'JetBrains Mono', monospace; font-weight: bold;">NOC Manager</div>
+          </div>
+        </div>
+        <ul class="admin-tabs" style="margin-top: 15px;">
+          <li class="tab-btn active" onclick="switchTab('dash', this)">📊 Telemetria Avançada</li>
+          <li class="tab-btn" onclick="switchTab('tickets-control', this)">🎟️ Fila Global Interativa</li>
+          <li class="tab-btn" onclick="switchTab('workload', this)">🛡️ Gestão de Operadores</li>
+        </ul>
+      </aside>
+      
+      <main class="admin-content-area">
+        <!-- TAB 1: TELEMETRIA -->
+        <div class="tab-content-pane active" id="pane-dash">
+          <h3 class="pane-headline">Health Matrix & Telemetria Crítica</h3>
+          <div class="admin-cards-grid">
+            <div class="stat-card border-red"><span class="card-label">Incidentes Ativos (Nível 3)</span><span class="card-number text-glow-red" id="dashCountCritical">0</span></div>
+            <div class="stat-card"><span class="card-label">Fila Global de Ativos</span><span class="card-number" id="dashCountTotal">0</span></div>
+            <div class="stat-card"><span class="card-label">Latência Média Global</span><span class="card-number text-glow-green">14ms</span></div>
+            <div class="stat-card"><span class="card-label">Uso Geral de CPU (Cluster)</span><span class="card-number text-glow-orange">42.8%</span></div>
+          </div>
+          
+          <div class="admin-cards-grid" style="margin-top: 15px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="stat-card" style="padding: 12px; font-size: 13px;">
+              <span style="color:var(--color-muted)">Nós de Cluster Ativos</span>
+              <div style="font-weight:bold; font-size: 16px; margin-top:5px; color:#22c55e">● 12/12 Operacionais</div>
+            </div>
+            <div class="stat-card" style="padding: 12px; font-size: 13px;">
+              <span style="color:var(--color-muted)">Bloqueios de Firewall (24h)</span>
+              <div style="font-weight:bold; font-size: 16px; margin-top:5px; color:#ef4444">1.4k Requisições</div>
+            </div>
+          </div>
+          
+          <div class="chart-container-box" style="margin-top: 20px;">
+            <h4>Taxa de Requisições por Segundo (Métrica em Tempo Real)</h4>
+            <canvas id="realtimeChart" style="max-height: 220px; width: 100%;"></canvas>
+          </div>
+        </div>
+
+        <!-- TAB 2: FILA COMPLETA -->
+        <div class="tab-content-pane" id="pane-tickets-control">
+          <h3 class="pane-headline">Gerenciamento Direto da Fila de Ativos</h3>
+          <div class="table-responsive">
+            <table class="main-data-table admin-table-compact">
+              <thead>
+                <tr>
+                  <th>Empresa</th>
+                  <th>Ativo / Host</th>
+                  <th>Categoria Alterável</th>
+                  <th>Nível / SLA Alterável</th>
+                  <th>Operador Designado</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="adminTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 3: GESTÃO DE OPERADORES -->
+        <div class="tab-content-pane" id="pane-workload">
+          <h3 class="pane-headline">Painel de Escalonamento e Carga Técnica</h3>
+          <p style="color:var(--color-muted); margin-bottom:20px; font-size:13px;">Monitoramento da integridade de carga de trabalho e tempos médios de resposta por analista.</p>
+          
+          <div class="operator-load-grid" style="display: flex; flex-direction: column; gap: 15px;">
+            <div class="op-load-card" style="display: grid; grid-template-columns: 120px 1fr 150px 100px; align-items: center; gap: 20px; padding: 15px;">
+              <strong>Matheus</strong>
+              <div class="load-bar"><div class="load-fill" style="width: 50%"></div></div>
+              <span style="font-size:13px; color:var(--color-muted)">1 Ativo sob custódia</span>
+              <span class="status-badge" style="background:#1e293b; color:#38bdf8; border:1px solid #0284c7; text-align:center;">Disponível</span>
+            </div>
+            
+            <div class="op-load-card" style="display: grid; grid-template-columns: 120px 1fr 150px 100px; align-items: center; gap: 20px; padding: 15px;">
+              <strong>Arthur</strong>
+              <div class="load-bar"><div class="load-fill" style="width: 25%"></div></div>
+              <span style="font-size:13px; color:var(--color-muted)">1 Ativo sob custódia</span>
+              <span class="status-badge" style="background:#1e293b; color:#f59e0b; border:1px solid #d97706; text-align:center;">Em Pausa</span>
+            </div>
+            
+            <div class="op-load-card" style="display: grid; grid-template-columns: 120px 1fr 150px 100px; align-items: center; gap: 20px; padding: 15px;">
+              <strong>Thomas</strong>
+              <div class="load-bar"><div class="load-fill" style="width: 85%; background-color:#ef4444"></div></div>
+              <span style="font-size:13px; color:var(--color-muted)">3 Ativos sob custódia</span>
+              <span class="status-badge badge-critical" style="text-align:center;">Sobrecarga</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+
+<script>
+let databaseTickets = [
+  { id: "BB-4301", title: "Google Corp", category: "Redes", host: "SW-CENTRAL-02", status: "Nível 2", assignee: "Matheus", step: "Em Campo" },
+  { id: "BB-9844", title: "Amazon Web", category: "Segurança Cibernética", host: "SRV-DATA-PROD", status: "Nível 3", assignee: "Arthur", step: "Em Análise" },
+  { id: "BB-1102", title: "Microsoft SP", category: "Hardware", host: "NAS-BACKUP-01", status: "Nível 1", assignee: "Thomas", step: "Pendente" }
+];
+
+let globalChartInstance = null;
+
+function showToast(msg) {
+  const t = document.getElementById('systemToast');
+  t.innerText = msg; t.classList.add('visible');
+  setTimeout(() => t.classList.remove('visible'), 4000);
+}
+
+function setActiveLink(element) {
+  document.querySelectorAll('.nav-btn-red').forEach(link => link.classList.remove('active'));
+  element.classList.add('active');
+}
+
+function setFormUrgency(level) {
+  document.getElementBy
